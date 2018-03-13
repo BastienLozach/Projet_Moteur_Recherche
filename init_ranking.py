@@ -3,8 +3,16 @@ import json
 import math
 
 ##parametres
-inputFile = "graphe_chemin.json"
-outputFile = "ranking.json"
+
+##default
+inputFile = "data/graphe_chemin.json"
+outputFile = "data/ranking.json"
+
+##set
+if len(sys.argv) >= 2 :
+    inputFile = sys.argv[1]
+    if len(sys.argv) >= 3 :
+        outputFile = sys.argv[2]
 
 ##Fonction
 def multiplyMatrixByVector(matrix, vector) :

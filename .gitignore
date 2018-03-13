@@ -105,3 +105,4 @@ ENV/
 
 #additionnals ignores
 maildir/*
+data/*

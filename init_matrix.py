@@ -3,8 +3,15 @@ import json
 import math
 
 ##parametres
-inputFile = "index.json"
-outputFile = "graphe_chemin.json"
+
+##default
+inputFile = "data/index.json"
+outputFile = "data/graphe_chemin.json"
+##set
+if len(sys.argv) >= 2 :
+    inputFile = sys.argv[1]
+    if len(sys.argv) >= 3 :
+        outputFile = sys.argv[2]
 
 ##Début du script
 mailIndex = None

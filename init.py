@@ -7,6 +7,11 @@ indexFile = "data/index.json"
 matrixFile = "data/graphe_chemin.json"
 rankingFile = "data/ranking.json"
 
+##creation du dossier
+directory = os.path.dirname(mailDirectory)
+if not os.path.exists(directory):
+    os.makedirs(directory)
+
 ##initialisation
 #os.system(sys.executable + " init_download.py")
 

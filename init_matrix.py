@@ -21,8 +21,12 @@ try :
         
         ##Lecture du fichier
         mailIndex = json.load(file)
-        size = len(mailIndex)
-        
+        size = 0
+        for name, element in mailIndex.items() :
+            if element["id"] > size :
+                size = element["id"]
+        size += 1
+
         ##initialisation de la matrice
         matrix = []
         for i in range(0,size) :
@@ -30,16 +34,16 @@ try :
             for i in range(0,size) :
                 line.append(0)
             matrix.append(line)
-          
         ##remplissage de la matrice
         for name, data in mailIndex.items() :
             mailId = data["id"]
             mailList = data["dest"]
             
             for mailSend in mailList :
-                i = mailId
-                j = mailIndex[mailSend]["id"]
-                matrix[i][j] += 1
+                if mailSend in mailIndex :
+                    k = mailId
+                    l = mailIndex[mailSend]["id"]
+                    matrix[k][l] += 1
                 
         ##ecriture du fichier
         with open(outputFile, "w") as file :

@@ -27,7 +27,7 @@ try :
         ##remplissage de la matrice
         for name, data in mailIndex :
             mailId = data["id"]
-            mailList = data["send"]
+            mailList = data["dest"]
             
             for mailSend in mailList :
                 i = mailId

@@ -32,13 +32,13 @@ try :
             matrix.append(line)
           
         ##remplissage de la matrice
-        for name, data in mailIndex :
+        for name, data in mailIndex.items() :
             mailId = data["id"]
             mailList = data["dest"]
             
             for mailSend in mailList :
                 i = mailId
-                j = mailIndex[maisSend]["id"]
+                j = mailIndex[mailSend]["id"]
                 matrix[i][j] += 1
                 
         ##ecriture du fichier

@@ -11,6 +11,9 @@ rankingFile = "data/ranking.json"
 if not os.path.exists("data"):
     os.makedirs("data")
 
+if not os.path.exists("history"):
+    os.makedirs("history")
+
 ##initialisation
 ##telechargement
 if not os.path.exists(mailDirectory):

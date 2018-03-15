@@ -38,12 +38,15 @@ try :
         for name, data in mailIndex.items() :
             mailId = data["id"]
             mailList = data["dest"]
-            
+            ##sum = 0
             for mailSend in mailList :
+                k = mailId
                 if mailSend in mailIndex :
-                    k = mailId
                     l = mailIndex[mailSend]["id"]
                     matrix[k][l] += 1
+                    ##sum += 1
+            ##print(k,' : ', name, " :", sum)
+            
                 
         ##ecriture du fichier
         with open(outputFile, "w") as file :

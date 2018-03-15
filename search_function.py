@@ -46,5 +46,5 @@ def get_search(motRecherche):
 commande = get_search(searchedTerm)
 
 ##ecriture du fichier
-with open(os.paht.join(historyFolder, searchedTerm + ".json"), "w") as file :
+with open(os.path.join(historyFolder, searchedTerm + ".json"), "w") as file :
     json.dump(commande, file, indent=4)

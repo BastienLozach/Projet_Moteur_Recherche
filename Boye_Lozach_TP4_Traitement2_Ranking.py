@@ -1,6 +1,6 @@
 import sys
 import re
-from six.moves.urllib.request import urlopen
+#from six.moves.urllib.request import urlopen
 import json
 import math
 

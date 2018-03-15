@@ -19,6 +19,7 @@ def get_contact_mails():
     res = {}
     contact_id = 0
     for contact_dir in os.listdir(inputFile):
+        print (contact_id)
         contact_id+=1
         mail_folder = "maildir/" + contact_dir + "/_sent_mail/"
         mail_from = None

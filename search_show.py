@@ -26,6 +26,7 @@ try :
             index+=1
             msg = email.message_from_file(open(mailFileName))
             print("Resultat n° " + str(index) + "\n")
+            print("\tFichier : " + mailFileName)
             if msg['From']:
                 print("\tExpediteur : " + msg["From"])
             if msg['To']:

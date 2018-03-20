@@ -7,7 +7,7 @@ import sys
 
 ##default
 inputFile = "maildir"
-outputFile = "data/index.json"
+outputFile = os.path.join("data","index.json")
 ##set
 if len(sys.argv) >= 2 :
     inputFile = sys.argv[1]

@@ -3,9 +3,9 @@ import sys
 
 ##files adresses
 mailDirectory = "maildir"
-indexFile = "data/index.json"
-matrixFile = "data/graphe_chemin.json"
-rankingFile = "data/ranking.json"
+indexFile = os.path.join("data", "index.json")
+matrixFile = os.path.join("data", "graphe_chemin.json")
+rankingFile = os.path.join("data", "ranking.json")
 
 ##creation du dossier data
 if not os.path.exists("data"):

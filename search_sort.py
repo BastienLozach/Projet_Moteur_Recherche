@@ -8,8 +8,8 @@ import collections
 
 
 historyFolder = "history"
-indexFile = "data/index.json"
-rankingFile = "data/ranking.json"
+indexFile = os.path.join("data","index.json")
+rankingFile = os.path.join("data", "ranking.json")
 
 
 ##parametres

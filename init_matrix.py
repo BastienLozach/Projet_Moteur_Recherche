@@ -5,8 +5,8 @@ import math
 ##parametres
 
 ##default
-inputFile = "data/index.json"
-outputFile = "data/graphe_chemin.json"
+inputFile = os.path.join("data", "index.json")
+outputFile = os.path.join("data","graphe_chemin.json")
 ##set
 if len(sys.argv) >= 2 :
     inputFile = sys.argv[1]

@@ -27,5 +27,6 @@ except :
     except :
         os.system(sys.executable + " search_function.py " + searchedTerm)
         
-print(response)
+##Affichage
+os.system(sys.executable + " search_show.py " + searchedTerm)
  

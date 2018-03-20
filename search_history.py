@@ -28,5 +28,8 @@ except :
     except :
         a = "Do nothing"
 
-##pour forcer un second tri
-os.system(sys.executable + " search_sort.py " + searchedTerm)
+try :
+    with open(os.path.join(historyFolder, searchedTerm + "_sorted" +".json")) as file :
+        a = "Do nothing"
+except :
+    os.system(sys.executable + " search_sort.py " + searchedTerm)

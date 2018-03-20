@@ -17,12 +17,14 @@ if len(sys.argv) >= 2 :
 response = None    
 
 index=0
-print(searchedTerm)
+print("Mot Recherché : ", searchedTerm)
 ##search in history
 try :
     with open(os.path.join(historyFolder, searchedTerm + ".json")) as file :
         response = json.load(file)
-        for mailFileName, nbOccurences in islice(response.items(), 10):
+        for line in islice(response, 10):
+            mailFileName = list(line.keys())[0]
+            nbOccurences = line[mailFileName] 
             index+=1
             msg = email.message_from_file(open(mailFileName))
             print("Resultat n° " + str(index) + "\n")

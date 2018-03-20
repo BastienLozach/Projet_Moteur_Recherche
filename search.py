@@ -13,6 +13,9 @@ if len(sys.argv) >= 2 :
 ##Download, Index, Ranking
 os.system(sys.executable + " init.py")
 
-##Search
+##Historique (et recherche)
 os.system(sys.executable + " search_history.py " + searchedTerm)
+
+##Affichage
+os.system(sys.executable + " search_show.py " + searchedTerm)
 

@@ -19,14 +19,14 @@ try :
         response = json.load(file)
 except :
     os.system(sys.executable + " search_function.py " + searchedTerm)
+    os.system(sys.executable + " search_sort.py " + searchedTerm)
     
     ##second try
     try :
         with open(os.path.join(historyFolder, searchedTerm + ".json")) as file :
             response = json.load(file)
     except :
-        os.system(sys.executable + " search_function.py " + searchedTerm)
-        
-##Affichage
-os.system(sys.executable + " search_show.py " + searchedTerm)
- 
+        a = "Do nothing"
+
+##pour forcer un second tri
+os.system(sys.executable + " search_sort.py " + searchedTerm)

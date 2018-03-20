@@ -20,7 +20,7 @@ index=0
 print("Mot Recherché : ", searchedTerm)
 ##search in history
 try :
-    with open(os.path.join(historyFolder, searchedTerm + ".json")) as file :
+    with open(os.path.join(historyFolder, searchedTerm +  "_sorted" + ".json")) as file :
         response = json.load(file)
         for line in islice(response, 10):
             mailFileName = list(line.keys())[0]

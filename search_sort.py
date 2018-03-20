@@ -25,24 +25,34 @@ try :
     
     ##ouvrir l'index
     with open(indexFile) as file :
-        index = json.load(file)
+        indexList = json.load(file)
         
     ##ouvrir l'index
     with open(rankingFile) as file :
-        ranking = json.load(file)
+        rankingList = json.load(file)
 
     with open(os.path.join(historyFolder, searchedTerm + ".json")) as file :
         unsortedResult = json.load(file)
         
+        updatedResult = unsortedResult.copy()
+        
+        for key, value in updatedResult.items() :
+            if (key in indexList):
+                expeditor = indexList[key]['id']
+                ranking = rankingList[expeditor]
+            else :
+                ranking = 0.1
+            newValue = value + 10 * ranking
+            updatedResult[key] = newValue
         sortedResult = []
         i = 0 ;
-        for key in sorted(unsortedResult, key=unsortedResult.get, reverse=True):
+        for key in sorted(updatedResult, key=updatedResult.get, reverse=True):
             sortedResult.append({key : unsortedResult[key]})
             i += 1
 
         
             
-    with open(os.path.join(historyFolder, searchedTerm + ".json"), 'w') as file :
+    with open(os.path.join(historyFolder, searchedTerm + "_sorted" + ".json"), 'w') as file :
         json.dump(sortedResult, file, indent=4)
             
             

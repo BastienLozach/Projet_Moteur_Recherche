@@ -25,7 +25,7 @@ def multiplyMatrixByVector(matrix, vector) :
         result.append(value)
     return result
 
-##Début du script
+##Debut du script
 linkMatrice = None
 
 try :

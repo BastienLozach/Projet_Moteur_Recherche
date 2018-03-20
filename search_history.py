@@ -15,14 +15,14 @@ if len(sys.argv) >= 2 :
 response = None    
 ##search in history
 try :
-    with open(os.path.join(historyFolder, searchedTerm)) as file :
+    with open(os.path.join(historyFolder, searchedTerm + ".json")) as file :
         response = json.load(file)
 except :
     os.system(sys.executable + " search_function.py " + searchedTerm)
     
     ##second try
     try :
-        with open(os.path.join(historyFolder, searchedTerm)) as file :
+        with open(os.path.join(historyFolder, searchedTerm + ".json")) as file :
             response = json.load(file)
     except :
         os.system(sys.executable + " search_function.py " + searchedTerm)

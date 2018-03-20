@@ -13,7 +13,7 @@ if len(sys.argv) >= 2 :
     if len(sys.argv) >= 3 :
         outputFile = sys.argv[2]
 
-##Début du script
+##Debut du script
 mailIndex = None
 
 try :

@@ -6,6 +6,11 @@ import sys
 historyFolder = "history"
 inputFile = "maildir"
 
+##index Folders
+indexFile4 = os.path.join("index","less_than_four_letters")
+indexFile4or5 = os.path.join("index","four_or_five_letters")
+indexFile5 = os.path.join("index","more_than_five_letters")
+
 ##parametres
 
 ##default
@@ -43,7 +48,20 @@ def get_search(motRecherche):
                    
     return occurence
 
-commande = get_search(searchedTerm)
+if 0 < len(searchedTerm) < 4 :
+    indexDir = indexFile4
+elif len(searchedTerm) > 5 :
+    indexDir = indexFile5
+elif 3 < len(searchedTerm) < 6 :
+    indexDir = indexFile4or5
+
+if os.path.exists(os.path.join(indexDir, searchedTerm[0] + ".json")):
+    with open(os.path.join(indexDir, searchedTerm[0] + ".json")) as file :
+        indexSearchedTerm = json.load(file)
+        commande = dict(indexSearchedTerm[searchedTerm.lower()])
+else :
+    commande = get_search(searchedTerm)
+    print("\n")
 
 ##ecriture du fichier
 with open(os.path.join(historyFolder, searchedTerm + ".json"), "w") as file :

@@ -29,9 +29,9 @@ def index_four_or_five_letters_insert(mot, nb, cibleMail) :
             index = json.load(file)
 
     if mot in index :
-        index[mot].append({cibleMail : nb})
+        index[mot].update({cibleMail : nb})
     else :
-        value = {mot : [{cibleMail : nb}]}
+        value = {mot : {cibleMail : nb}}
         index.update(value)
 
     with open(os.path.join(outputFile4or5, mot[0] + ".json"), "w") as file :
@@ -45,9 +45,9 @@ def index_less_than_four_letters_insert(mot, nb, cibleMail) :
             index = json.load(file)
 
     if mot in index :
-        index[mot].append({cibleMail : nb})
+        index[mot].update({cibleMail : nb})
     else :
-        value = {mot : [{cibleMail : nb}]}
+        value = {mot : {cibleMail : nb}}
         index.update(value)
 
     with open(os.path.join(outputFile4, mot[0] + ".json"), "w") as file :
@@ -61,16 +61,18 @@ def index_more_than_five_letters_insert(mot, nb, cibleMail) :
             index = json.load(file)
 
     if mot in index :
-        index[mot].append({cibleMail : nb})
+        index[mot].update({cibleMail : nb})
     else :
-        value = {mot : [{cibleMail : nb}]}
+        value = {mot : {cibleMail : nb}}
         index.update(value)
 
     with open(os.path.join(outputFile5, mot[0] + ".json"), "w") as file :
         json.dump(index, file, indent=4)
-
+total = 0 ;
 for folder, subs, files in os.walk(inputFile):
         for mailFile in files:
+            total += 1 ;
+            print("\rPas de crash ! mail : " + str(total), end="") 
             try :
                 cibleMail = os.path.join(folder, mailFile)
                 mail = open(cibleMail).read()
@@ -83,7 +85,6 @@ for folder, subs, files in os.walk(inputFile):
                 arr = [mot.lower() for mot in arr]
                 counter = collections.Counter(arr)
                 for mot,nb in counter.items():
-                    print(mot)
                     if 0 < len(mot) < 4 :
                         index_less_than_four_letters_insert(mot, nb, cibleMail)
                     elif len(mot) > 5 :
@@ -92,6 +93,6 @@ for folder, subs, files in os.walk(inputFile):
                         index_four_or_five_letters_insert(mot,nb, cibleMail)
             except IOError:
                 print(IOError)
-
+        print("\n")
 
 

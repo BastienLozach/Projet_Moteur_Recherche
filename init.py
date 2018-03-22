@@ -4,6 +4,7 @@ import sys
 ##files adresses
 mailDirectory = "maildir"
 indexFile = os.path.join("data", "index.json")
+indexDir = "index"
 matrixFile = os.path.join("data", "graphe_chemin.json")
 rankingFile = os.path.join("data", "ranking.json")
 
@@ -19,9 +20,14 @@ if not os.path.exists("history"):
 if not os.path.exists(mailDirectory):
     os.system(sys.executable + " init_download.py")    
 
-##indexage
+##indexage des expediteurs
 if not os.path.exists(indexFile):
     os.system(sys.executable + " init_index.py " + " " + mailDirectory + " " + indexFile)       
+
+##indexage des mails
+if not os.path.exists(indexDir):
+    os.system(sys.executable + " init_index_mails.py")       
+
 
 ##matrice
 if not os.path.exists(matrixFile):

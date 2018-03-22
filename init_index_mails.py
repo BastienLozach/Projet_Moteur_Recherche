@@ -4,7 +4,7 @@ import collections
 import json
 import re
 
-inputFile = "maildirtest"
+inputFile = "maildir"
 outputFile4 = os.path.join("index","less_than_four_letters")
 outputFile4or5 = os.path.join("index","four_or_five_letters")
 outputFile5 = os.path.join("index","more_than_five_letters")

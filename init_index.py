@@ -41,3 +41,4 @@ def get_contact_mails():
 ##ecriture du fichier
 with open(outputFile, "w") as file :
     file.write(json.dumps(get_contact_mails(), indent=4))
+

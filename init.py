@@ -26,8 +26,8 @@ if not os.path.exists(indexFile):
 
 ##indexage des mails
 if not os.path.exists(indexDir):
-    os.system(sys.executable + " init_index_mails.py")       
-
+    #os.system(sys.executable + " init_index_mails.py")
+    os.system(sys.executable + " init_index_mails_alternative.py")
 
 ##matrice
 if not os.path.exists(matrixFile):
